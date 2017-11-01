@@ -3,7 +3,7 @@
 var benchmark = require('benchmark');
 var vertcore = require('..');
 var bitcoinjs = require('bitcoinjs-lib');
-var bcoin = require('bcoin');
+var vcoin = require('vcoin');
 var async = require('async');
 var fullnode = require('fullnode');
 var blockData = require('./block-357238.json');
@@ -87,12 +87,12 @@ async.series([
       block2 = bitcoinjs.Block.fromHex(blockData);
     }
 
-    var parser = new bcoin.protocol.parser();
+    var parser = new vcoin.protocol.parser();
 
-    function bcoinTest() {
-      var raw = bcoin.utils.toArray(blockData, 'hex');
+    function vcoinTest() {
+      var raw = vcoin.utils.toArray(blockData, 'hex');
       var data = parser.parseBlock(raw);
-      block3 = new bcoin.block(data, 'block');
+      block3 = new vcoin.block(data, 'block');
     }
 
     var blockDataMessage = '0000000000000000' + blockData; // add mock leading magic and size
@@ -104,7 +104,7 @@ async.series([
     var suite = new benchmark.Suite();
     suite.add('vertcore', vertcoreTest, {maxTime: maxTime});
     suite.add('bitcoinjs', bitcoinJSTest, {maxTime: maxTime});
-    suite.add('bcoin', bcoinTest, {maxTime: maxTime});
+    suite.add('vcoin', vcoinTest, {maxTime: maxTime});
     suite.add('fullnode', fullnodeTest, {maxTime: maxTime});
     suite
       .on('cycle', function(event) {
