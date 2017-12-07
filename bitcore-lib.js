@@ -9938,7 +9938,7 @@ Transaction.prototype._newTransaction = function() {
  *
  * ```
  * {
- *  address: 'mszYqVnqKoQx4jcTdJXxwKAissE3Jbrrc1',
+ *  address: 'VnURT9sJvasuMQ2zeXDDYJHFhgvJoMnf8G',
  *  txId: 'a477af6b2667c29670467e4e0728b685ee07b240235771862318e29ddbe58458',
  *  outputIndex: 0,
  *  script: Script.empty(),
@@ -11032,7 +11032,7 @@ var Unit = require('./unit');
  * @example
  * ```javascript
  *
- * var uri = new URI('bitcoin:12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu?amount=1.2');
+ * var uri = new URI('vertcoin:12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu?amount=1.2');
  * console.log(uri.address, uri.amount);
  * ```
  *
@@ -11090,12 +11090,12 @@ URI.fromObject = function fromObject(json) {
 };
 
 /**
- * Check if an bitcoin URI string is valid
+ * Check if a vertcoin URI string is valid
  *
  * @example
  * ```javascript
  *
- * var valid = URI.isValid('bitcoin:12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu');
+ * var valid = URI.isValid('vertcoin:12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu');
  * // true
  * ```
  *
@@ -11122,8 +11122,8 @@ URI.isValid = function(arg, knownParams) {
 URI.parse = function(uri) {
   var info = URL.parse(uri, true);
 
-  if (info.protocol !== 'bitcoin:') {
-    throw new TypeError('Invalid bitcoin URI');
+  if (info.protocol !== 'vertcoin:') {
+    throw new TypeError('Invalid vertcoin URI');
   }
 
   // workaround to host insensitiveness
@@ -11217,7 +11217,7 @@ URI.prototype.toString = function() {
   _.extend(query, this.extras);
 
   return URL.format({
-    protocol: 'bitcoin:',
+    protocol: 'vertcoin:',
     host: this.address,
     query: query
   });

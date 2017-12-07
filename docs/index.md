@@ -52,7 +52,7 @@ Some functionality is implemented as a module that can be installed separately:
 var privateKey = new vertcore.PrivateKey();
 
 var exported = privateKey.toWIF();
-// e.g. L3T1s1TYP9oyhHpXgkyLoJFGniEgkv2Jhi138d7R2yJ9F4QdDU2m
+// e.g. 5JEdn2uaFsgetmzkTuEpHDFe51KnUvGPxfQwfYBVMoCUKQdKGLy
 var imported = vertcore.PrivateKey.fromWIF(exported);
 var hexa = privateKey.toString();
 // e.g. 'b9de6e778fe92aa7edb69395556f843f1dce0448350112e14906efc2a80fa61a'

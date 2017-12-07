@@ -23,13 +23,13 @@ describe('Networks', function() {
     networks.testnet.regtestEnabled.should.equal(true);
 
     networks.disableRegtest();
-    networks.testnet.networkMagic.should.deep.equal(new Buffer('0b110907', 'hex'));
-    networks.testnet.port.should.equal(18333);
+    networks.testnet.networkMagic.should.deep.equal(new Buffer('76657274', 'hex'));
+    networks.testnet.port.should.equal(15889);
     networks.testnet.dnsSeeds.should.deep.equal([
-      'testnet-seed.bitcoin.petertodd.org',
-      'testnet-seed.bluematt.me',
-      'testnet-seed.alexykot.me',
-      'testnet-seed.bitcoin.schildbach.de'
+      'jlovejoy.mit.edu',
+      'gertjaap.ddns.net',
+      'fr1.vtconline.org',
+      'tvtc.vertcoin.org'
     ]);
   });
 
@@ -105,14 +105,14 @@ describe('Networks', function() {
   });
 
   it('tests only for the specified key', function() {
-    expect(networks.get(0x6f, 'pubkeyhash')).to.equal(networks.testnet);
-    expect(networks.get(0x6f, 'privatekey')).to.equal(undefined);
+    expect(networks.get(74, 'pubkeyhash')).to.equal(networks.testnet);
+    expect(networks.get(74, 'privatekey')).to.equal(undefined);
   });
 
   it('can test for multiple keys', function() {
-    expect(networks.get(0x6f, ['pubkeyhash', 'scripthash'])).to.equal(networks.testnet);
-    expect(networks.get(0xc4, ['pubkeyhash', 'scripthash'])).to.equal(networks.testnet);
-    expect(networks.get(0x6f, ['privatekey', 'port'])).to.equal(undefined);
+    expect(networks.get(74, ['pubkeyhash', 'scripthash'])).to.equal(networks.testnet);
+    expect(networks.get(196, ['pubkeyhash', 'scripthash'])).to.equal(networks.testnet);
+    expect(networks.get(74, ['privatekey', 'port'])).to.equal(undefined);
   });
 
   it('converts to string using the "name" property', function() {

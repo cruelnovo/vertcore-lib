@@ -15,8 +15,8 @@ var errors = vertcore.errors;
 
 describe('TransactionSignature', function() {
 
-  var fromAddress = 'mszYqVnqKoQx4jcTdJXxwKAissE3Jbrrc1';
-  var privateKey = 'cSBnVM4xvxarwGQuAfQFwqDg9k5tErHUHzgWsEfD4zdwUasvqRVY';
+  var fromAddress = 'VvpmccJJqZ4FtWLHpEvkGgrtFLGb6c6kpz';
+  var privateKey = '5K7xyYcEmNhci8shs7Z7Q72kifyQqAV2JtLQ8Nzk8zKYpAMdywV';
   var simpleUtxoWith100000Satoshis = {
     address: fromAddress,
     txId: 'a477af6b2667c29670467e4e0728b685ee07b240235771862318e29ddbe58458',

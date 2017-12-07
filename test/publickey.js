@@ -337,34 +337,34 @@ describe('PublicKey', function() {
     it('should output this known mainnet address correctly', function() {
       var pk = new PublicKey('03c87bd0e162f26969da8509cafcb7b8c8d202af30b928c582e263dd13ee9a9781');
       var address = pk.toAddress('livenet');
-      address.toString().should.equal('1A6ut1tWnUq1SEQLMr4ttDh24wcbJ5o9TT');
+      address.toString().should.equal('Vj6jnj3yCHjDW1JV6diXK81skkuZnnFtLp');
     });
 
     it('should output this known testnet address correctly', function() {
       var pk = new PublicKey('0293126ccc927c111b88a0fe09baa0eca719e2a3e087e8a5d1059163f5c566feef');
       var address = pk.toAddress('testnet');
-      address.toString().should.equal('mtX8nPZZdJ8d3QNLRJ1oJTiEi26Sj6LQXS');
+      address.toString().should.equal('X11pMNXuMczCnND8Wmh1Mpe8RMZYNTxv1s');
     });
 
   });
 
   describe('hashes', function() {
-
     // wif private key, address
     // see: https://github.com/bitcoin/bitcoin/blob/master/src/test/key_tests.cpp#L20
     var data = [
-      ['5HxWvvfubhXpYYpS3tJkw6fq9jE9j18THftkZjHHfmFiWtmAbrj', '1QFqqMUD55ZV3PJEJZtaKCsQmjLT6JkjvJ'],
-      ['5KC4ejrDjv152FGwP386VD1i2NYc5KkfSMyv1nGy1VGDxGHqVY3', '1F5y5E5FMc5YzdJtB9hLaUe43GDxEKXENJ'],
-      ['Kwr371tjA9u2rFSMZjTNun2PXXP3WPZu2afRHTcta6KxEUdm1vEw', '1NoJrossxPBKfCHuJXT4HadJrXRE9Fxiqs'],
-      ['L3Hq7a8FEQwJkW1M2GNKDW28546Vp5miewcCzSqUD9kCAXrJdS3g', '1CRj2HyM1CXWzHAXLQtiGLyggNT9WQqsDs']
+      ['Ky8PoXhMhGLxQ2pjHbn2fC1iL4wSuyevVatxSuLt4JEYVry4HBHH', 'VqZ6EwtYa4nQNZb8qzruJB3wZUUALf1pXD'],
+      ['5JEdn2uaFsgetmzkTuEpHDFe51KnUvGPxfQwfYBVMoCUKQdKGLy', 'Vg2sxR3t2dTMPHFmhHzNAg1HvDGvKbHxsg'],
+      ['L2W8XAySqq8RD73HVWpX2WToQgnYkmWTNfESrS54RuKQ5DxoUoyv', 'VaiSWaSVq3bWiZppuuwdoiboRtigAZ42dM'],
+      ['5K7xyYcEmNhci8shs7Z7Q72kifyQqAV2JtLQ8Nzk8zKYpAMdywV', 'VvpmccJJqZ4FtWLHpEvkGgrtFLGb6c6kpz']
     ];
     
     data.forEach(function(d){
-      var publicKey = PrivateKey.fromWIF(d[0]).toPublicKey();
-      var address = Address.fromString(d[1]);
-      address.hashBuffer.should.deep.equal(publicKey._getID());
+      it('should read address ' + d[1] + ' from wif private key', function() {
+        var publicKey = PrivateKey.fromWIF(d[0]).toPublicKey();
+        var address = Address.fromString(d[1]);
+        address.hashBuffer.should.deep.equal(publicKey._getID());
+      });
     });
-    
   });
 
   describe('#toString', function() {
@@ -389,9 +389,9 @@ describe('PublicKey', function() {
     });
 
     it('should output known compressed pubkey with network for console', function() {
-      var privkey = PrivateKey.fromWIF('L3T1s1TYP9oyhHpXgkyLoJFGniEgkv2Jhi138d7R2yJ9F4QdDU2m');
+      var privkey = PrivateKey.fromWIF('cUXKeedfmggC84xJTFV4sdcrCzq74ER2Nv5YEEVw6EqSEufVWYTz');
       var pubkey = new PublicKey(privkey);
-      pubkey.inspect().should.equal('<PublicKey: 03c87bd0e162f26969da8509cafcb7b8c8d202af30b928c582e263dd13ee9a9781>');
+      pubkey.inspect().should.equal('<PublicKey: 0362a5410c343eefbb2acf2447f4fef9846ea492dba70b6737bc429ad980292e1f>');
     });
 
   });

@@ -15,9 +15,9 @@ This is the most commonly used transaction output script. It's used to pay to a 
 
 ```javascript
 // create a new p2pkh paying to a specific address
-var address = Address.fromString('1NaTVwXDDUJaXDQajoa9MqHhz4uTxtgK14');
+var address = Address.fromString('VhFYNaULHGf5YycCKsBZLhLqntf1EDesqg');
 var script = Script.buildPublicKeyHashOut(address);
-assert(script.toString() === 'OP_DUP OP_HASH160 20 0xecae7d092947b7ee4998e254aa48900d26d2ce1d OP_EQUALVERIFY OP_CHECKSIG');
+assert(script.toString() === 'OP_DUP OP_HASH160 20 0x4f9150d2994b2886cac7256896cdb69f58c53a99 OP_EQUALVERIFY OP_CHECKSIG');
 ```
 
 ### Pay to Public Key (p2pk)

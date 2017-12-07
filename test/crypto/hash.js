@@ -138,8 +138,25 @@ describe('Hash', function() {
 
   describe('#lyra2REv2', function () {
     it('calculates the hash of this buffer correctly', function() {
-      var buf = Buffer.from('700000005d385ba114d079971b29a9418fd0549e7d68a95c7f168621a314201000000000578586d149fd07b22f3a8a347c516de7052f034d2b76ff68e0d6ecff9b77a45489e3fd511732011df0731000');
-      Hash.lyra2REv2(buf).toString('hex').should.equal('TODO');
+      var buf = Buffer.from('700000005d385ba114d079971b29a9418fd0549e7d68a95c7f168621a314201000000000578586d149fd07b22f3a8a347c516de7052f034d2b76ff68e0d6ecff9b77a45489e3fd511732011df0731000', 'hex');
+      var hash = Hash.lyra2rev2(buf);
+      hash.toString('hex').should.equal('f57765508f8f4fd77c9faec9622a53a80ea42958796a582a9d033c7f79cd3cdf');
+    });
+  });
+
+  describe('#lyra2RE', function () {
+    it('calculates the hash of this buffer correctly', function() {
+      var buf = Buffer.from('700000005d385ba114d079971b29a9418fd0549e7d68a95c7f168621a314201000000000578586d149fd07b22f3a8a347c516de7052f034d2b76ff68e0d6ecff9b77a45489e3fd511732011df0731000', 'hex');
+      var hash = Hash.lyra2re(buf);
+      hash.toString('hex').should.equal('64147403a34477b6af9a4da76f3c9d104fd9425bb5cf8dd5bc4c3428887f205e');
+    });
+  });
+
+  describe('#scryptn', function () {
+    it('calculates the hash of this buffer correctly', function() {
+      var buf = Buffer.from('700000005d385ba114d079971b29a9418fd0549e7d68a95c7f168621a314201000000000578586d149fd07b22f3a8a347c516de7052f034d2b76ff68e0d6ecff9b77a45489e3fd511732011df0731000', 'hex');
+      var hash = Hash.scryptn(buf, 2048);
+      hash.toString('hex').should.equal('e30576d6e751fd22d05a6de5d3c394b61d69189ed0b3baa2868b2c31cd16e946');
     });
   });
 });
