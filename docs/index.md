@@ -36,13 +36,13 @@ To get started, just `npm install vertcore` or `bower install vertcore`.
 Some functionality is implemented as a module that can be installed separately:
 
 * [Payment Protocol Support](https://github.com/bitpay/bitcore-payment-protocol)
-* [Peer to Peer Networking](https://github.com/Cubey2019/vertcore-p2p)
+* [Peer to Peer Networking](https://github.com/vertcoin-project/vertcore-p2p)
 * [Bitcoin Core JSON-RPC](https://github.com/bitpay/bitcoind-rpc)
 * [Payment Channels](https://github.com/bitpay/bitcore-channel)
 * [Mnemonics](https://github.com/bitpay/bitcore-mnemonic)
 * [Elliptical Curve Integrated Encryption Scheme](https://github.com/bitpay/bitcore-ecies)
 * [Blockchain Explorers](https://github.com/bitpay/bitcore-explorers)
-* [Signed Messages](https://github.com/Cubey2019/vertcore-message)
+* [Signed Messages](https://github.com/vertcoin-project/vertcore-message)
 
 # Examples
 
