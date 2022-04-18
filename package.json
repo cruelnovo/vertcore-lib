@@ -40,11 +40,11 @@
     "elliptic": "=6.4.0",
     "inherits": "=2.0.1",
     "lodash": "=4.17.4",
-    "vertcoinhash": "git://github.com/cruelnovo/vertcoinhash.git",
+    "vertcoinhash": "https://github.com/cruelnovo/vertcoinhash.git",
     "scryptsy": "=2.0.0"
   },
   "devDependencies": {
-    "vertcore-build": "git://github.com/vertcoin-project/vertcore-build.git",
+    "vertcore-build": "https://github.com/vertcoin-project/vertcore-build.git",
     "brfs": "^1.2.0",
     "chai": "^1.10.0",
     "gulp": "^3.8.10",
